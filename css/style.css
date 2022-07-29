@@ -1,19 +1,7 @@
-/* @font-face{
-   font-family:"light";
-   src:url(fonts/Poppins-Light.woff);
-}
 @font-face{
-   font-family:"regular";
-   src:url(fonts/Poppins-Regular.woff);
+   font-family:"Roman";
+   src:url(/fonts/AvenirLTStd-Roman.woff);
 }
-@font-face{
-   font-family:"semibold";
-   src:url(fonts/Poppins-SemiBold.woff);
-}
-@font-face{
-   font-family:"bold";
-   src:url(fonts/Poppins-Bold.woff);
-} */
 
 /*------------------------RESET------------------------*/
 html,
@@ -147,7 +135,7 @@ nav img{
    max-height:25px;
    padding:0 20px;
 }
-.d-flex p::after{
+.arrow p::after{
    content:"";
    border:solid black;
    border-width:0 2px 2px 0;
@@ -156,11 +144,24 @@ nav img{
    transform:rotate(45deg);
    transition:.3s ease all;
 }
-.d-flex p:hover{
+menu .arrow{
+   position:relative;
+}
+menu .submenu{
+   background:#fff;
+   position:absolute;
+   display:none;
+   top:45px;
+   left:0;
+}
+.arrow p:hover{
    cursor:pointer;
 }
-.d-flex p.open::after{
+.arrow p.close::after{
    transform:rotate(135deg) scaleX(-1);
+}
+.open li{
+   padding:10px 0 0;
 }
 .justify-content-evenly li {
    gap:20px;
@@ -283,7 +284,47 @@ h6{
    line-height:30px;
    color:#1D293F;
 }
-
+/* Navigation Footer */
+footer.container{
+   background:#272727;
+   max-height:383px;
+   padding:76px 165px 0;
+   color:#fff;
+}
+footer img{
+   width:fit-content;
+}
+.nav_footer{
+   border-top:1px solid #fff;
+   padding-bottom:83px;
+}
+.logo_footer{
+   padding-top:20px;
+   max-width:270px;
+}
+.logo_footer figcaption{
+   padding-top:10px;
+   line-height:20px;
+}
+.list h3{
+   padding:25px 0;
+}
+.list{
+   padding-left:40px;
+}
+.list li a{
+   color:#fff;
+}
+.list li{
+   padding:0 0 50px;
+}
+.copy{
+   background:#fff;
+   font-family:'Roman';
+   color:#5E6E89;
+   padding:25px 0;
+   height:80px;
+}
 /* CELULAR
 @media screen and (max-width:600px){
    body{
