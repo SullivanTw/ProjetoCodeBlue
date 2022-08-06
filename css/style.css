@@ -115,25 +115,25 @@ input[type="search"]:placeholder,
 input[type="url"]:placeholder{color:#666;}
 /*------------------------END RESET------------------------*/
 
-.container {
-   max-width:1440px;
-   padding:0;
-}
 /* Navigation Bar */
 nav {
-   max-height:75px;
    background: #fff;
+   padding:10px;
 }
-.benefits img,
+
+.hamburguer{display:none;}
 .testimonials img,
 nav img{
    width:fit-content;
 }
-.justify-content-between li {
+.arrow li {
    gap:88px;
    max-width:387px;
    max-height:25px;
    padding:0 20px;
+}
+.gap-3 li:last-child{
+   padding-top:3px;
 }
 .arrow p::after{
    content:"";
@@ -144,15 +144,16 @@ nav img{
    transform:rotate(45deg);
    transition:.3s ease all;
 }
-menu .arrow{
+nav .arrow{
    position:relative;
 }
-menu .submenu{
+nav .submenu{
    background:#fff;
    position:absolute;
    display:none;
-   top:45px;
-   left:0;
+   top:30px;
+   left:20px;
+   z-index:9;
 }
 .arrow p:hover{
    cursor:pointer;
@@ -162,14 +163,6 @@ menu .submenu{
 }
 .open li{
    padding:10px 0 0;
-}
-.justify-content-evenly li {
-   gap:20px;
-   max-width:80px;
-   padding:0 10px; 
-}
-.justify-content-evenly li:last-child{
-   padding-top:3px;
 }
 /* Banner HomePage */
 section .position-absolute {
@@ -181,9 +174,7 @@ section .position-absolute {
 }
 /* Card + Buttom if Banner */
 .banner_box{
-   max-width:540px;
-   max-height:168px;
-   margin:35px 95px 45px;
+   padding:35px 95px 45px;
 }
 h2 {
    font:40px/58px 'Poppins';
@@ -192,15 +183,12 @@ h2 {
    font-family:Helvetica, sans-serif;
 }
 a.btn {
-   max-height:40px;
-   max-width:310px;
-   border-radius:4px;
    background:#56B280;
    color:#fff;
 }
 /* Main Content */
 .products_text{
-   padding:90px 165px 0;
+   padding:90px 40px 0;
    color:#5E6E89;
 }
 .products{
@@ -214,7 +202,7 @@ h5{
    color:#1D293F
 }
 h4{
-   font:28px/28px 'Roboto';
+   font:20px/28px 'Roboto';
    text-align:right;
    color:#56B280
 }
@@ -234,12 +222,10 @@ h4{
 }
 /* Benefits + Banner*/
 .benefits{
-   display:flex;
    background:#F7F8FA;
 }
-.benefits article{
-   padding-top:132px;
-   padding-left:171px;
+.benefits .justify-content-between{
+   padding:120px 103px;
 }
 .benefits h2{
    max-width:350px;
@@ -252,11 +238,9 @@ h4{
    padding:38px 0 68px;
    line-height:35px;
 }
-.benefits figure{
-   margin:120px 0 120px 65px;
-}
 /* Testimonials */
 .testimonials{
+   padding:0 40px;
    background: rgba(86, 178, 128, 0.1);
 }
 .testimonials_text {
@@ -266,11 +250,9 @@ h4{
    align-items:center;
    border-radius:6px;
    border:0;
-   margin-bottom:10px;
    background:#F8F9F9;
    text-align:center;
    height:295px;
-   width:350px;
    margin-bottom:90px;
 }
 .perfil h5{
@@ -284,19 +266,20 @@ h6{
    line-height:30px;
    color:#1D293F;
 }
+
+
 /* Navigation Footer */
-footer.container{
-   background:#272727;
-   max-height:383px;
-   padding:76px 165px 0;
-   color:#fff;
-}
 footer img{
    width:fit-content;
 }
+.footer_line{
+   background:#272727;
+   max-height:383px;
+   padding:76px 165px;
+}
 .nav_footer{
    border-top:1px solid #fff;
-   padding-bottom:83px;
+   color:#fff;
 }
 .logo_footer{
    padding-top:20px;
@@ -307,7 +290,7 @@ footer img{
    line-height:20px;
 }
 .list h3{
-   padding:25px 0;
+   padding:20px 0 30px;
 }
 .list{
    padding-left:40px;
@@ -325,9 +308,138 @@ footer img{
    padding:25px 0;
    height:80px;
 }
-/* CELULAR
-@media screen and (max-width:600px){
-   body{
-      background:#900;
+.products_text .btn{
+   display:none;
+}
+
+/* SMARTPHONE */
+@media screen and (max-width:768px){
+   
+   header{
+      justify-content:space-around;
    }
-} */
+   .hamburguer{
+      display:block;
+      width:50px;
+      float:right;
+      order:-1;
+   }
+   .hamburguer p{
+      border-bottom:3px solid #333;
+      margin:3px 0;
+   }
+   nav{
+      position:relative;
+      padding:30px 25px;
+   }
+   nav ul{
+      position:absolute;
+      left:0;
+      top:100%;
+      z-index:99;
+      padding:10px;
+   }
+   nav .arrow{display: none !important;}
+   nav figure {
+      position:absolute;
+      top:25px;
+      right:149px;
+   }
+   nav:hover ul{display:block;}
+   nav li{
+      margin:30px 0;
+   }
+   nav .costumer {
+      position:absolute;
+      top:-15px;
+      right:50px;
+   }
+   .banner_box {
+      padding:10px 0;
+   }
+   .products {
+      margin:60px 0;
+   }
+   .products_text button{
+      display:block;
+      padding:0;
+   }
+   .products_text{
+      position:relative;
+      padding:90px 0 70px;
+   }
+   .ocult,
+   /*.moviment:hover{display:none;}*/
+   .moviment{
+      height:auto;
+   }
+   .benefits .justify-content-between {
+      position:relative;
+      padding:120px 0;
+   }
+   .benefits img{
+      position:absolute;
+      top:20%;
+   }
+   .benefits ul {
+      padding:330px 0 68px;
+   }
+   .benefits h2,
+   .benefits p{
+      max-width:383px;
+      align-self:center;
+      text-align:center;
+   }
+
+
+
+
+   .arrow li {
+      gap:88px;
+      max-width:387px;
+      max-height:25px;
+      padding:0 20px;
+   }
+   .arrow p::after{
+      content:"";
+      border:solid black;
+      border-width:0 2px 2px 0;
+      display:inline-block;
+      padding:3px;
+      transform:rotate(45deg);
+      transition:.3s ease all;
+   }
+   nav .arrow{
+      position:relative;
+   }
+   nav .submenu{
+      background:#fff;
+      position:absolute;
+      display:none;
+      top:30px;
+      left:20px;
+      z-index:9;
+   }
+   .arrow p:hover{
+      cursor:pointer;
+   }
+   .arrow p.close::after{
+      transform:rotate(135deg) scaleX(-1);
+   }
+   .open li{
+      padding:10px 0 0;
+   }
+   footer{
+      display:none;
+   }
+
+   /* testimonials mobile */
+   .slids {
+      overflow-x: scroll;
+      display: flex !important;
+      flex-direction: row;
+      flex-wrap: nowrap !important;
+      justify-content: flex-start !important;
+   }
+
+}
