@@ -117,11 +117,15 @@ input[type="url"]:placeholder{color:#666;}
 
 /* Navigation Bar */
 nav {
-   background: #fff;
+   background:#fff;
    padding:10px;
+   z-index:9999;
+   position:fixed;
+   width: 100%;
+
 }
 
-.hamburguer{display:none;}
+.second-button{display:none;}
 .testimonials img,
 nav img{
    width:fit-content;
@@ -146,6 +150,7 @@ nav img{
 }
 nav .arrow{
    position:relative;
+   display:flex;
 }
 nav .submenu{
    background:#fff;
@@ -154,6 +159,9 @@ nav .submenu{
    top:30px;
    left:20px;
    z-index:9;
+}
+.submenu li{
+   padding-bottom:20px;
 }
 .arrow p:hover{
    cursor:pointer;
@@ -192,11 +200,15 @@ a.btn {
    color:#5E6E89;
 }
 .products{
-   margin:60px 0 125px;
+   padding:70px 0 125px;
+   margin:0;
 }
 .products_text,
 .popular_products h2{
    color:#0B254B;
+}
+.products_text .btn{
+   display:none;
 }
 h5{
    color:#1D293F
@@ -308,9 +320,7 @@ footer img{
    padding:25px 0;
    height:80px;
 }
-.products_text .btn{
-   display:none;
-}
+
 
 /* SMARTPHONE */
 @media screen and (max-width:768px){
@@ -318,18 +328,58 @@ footer img{
    header{
       justify-content:space-around;
    }
-   .hamburguer{
+   .second-button{
       display:block;
-      width:50px;
-      float:right;
-      order:-1;
+      width:30px;
    }
-   .hamburguer p{
-      border-bottom:3px solid #333;
-      margin:3px 0;
+   .animated-icon2{
+      width:30px;
+      height:20px;
+      position:relative;
+      margin:0px;
+      transform:rotate(0deg);
+      transition:.5s ease-in-out;
+      cursor:pointer;
+   }
+   .animated-icon2 span{
+      display:block;
+      position:absolute;
+      height:3px;
+      width:100%;
+      background:#000;
+      border-radius:9px;
+      opacity:1;
+      left:0;
+      transform:rotate(0deg);
+      transition:.25s ease-in-out;
+   }
+   .animated-icon2 span:nth-child(1){
+      top:0px;
+   }
+   .animated-icon2 span:nth-child(2),
+   .animated-icon2 span:nth-child(3){
+      top:10px;
+   }
+   .animated-icon2 span:nth-child(4){
+      top:20px;
+   } 
+   .animated-icon2.open span:nth-child(1){
+      top:11px;
+      width:0%;
+      left:50%;
+   }
+   .animated-icon2.open span:nth-child(2){
+      transform:rotate(45deg);
+   }
+   .animated-icon2.open span:nth-child(3){
+      transform:rotate(-45deg);
+   } 
+   .animated-icon2.open span:nth-child(4){
+      top:11px;
+      width:0%;
+      left:50%;
    }
    nav{
-      position:relative;
       padding:30px 25px;
    }
    nav ul{
@@ -339,13 +389,20 @@ footer img{
       z-index:99;
       padding:10px;
    }
-   nav .arrow{display: none !important;}
+   #dropdown {
+      position: absolute !important;
+      display:none;
+      top:75px;
+      left:0;
+      height:175px;
+      background: #fff;
+      text-align:left;
+   }
    nav figure {
       position:absolute;
       top:25px;
-      right:149px;
+      right:155px;
    }
-   nav:hover ul{display:block;}
    nav li{
       margin:30px 0;
    }
@@ -358,7 +415,8 @@ footer img{
       padding:10px 0;
    }
    .products {
-      margin:60px 0;
+      padding:70px 0 50px;
+      margin:0;
    }
    .products_text button{
       display:block;
@@ -368,10 +426,36 @@ footer img{
       position:relative;
       padding:90px 0 70px;
    }
-   .ocult,
-   /*.moviment:hover{display:none;}*/
+   .ocult{display:none;}
+   .moviment:hover{
+      transform:none;
+      translate:none;
+      margin:0 0 10px
+   }
+   .shadow-lg{
+      box-shadow:0 .125rem .25rem rgba(0,0,0,.075)!important;
+   }
    .moviment{
       height:auto;
+      transition:none;
+   }
+   .card{
+      position:relative;
+      overflow:hidden;
+      height:200px;
+   }
+   .card-body{
+      position:absolute;
+      top:140px;
+      left:-1px;
+      width:102%;
+      padding-bottom:0px;
+   }
+   .card-title{
+      margin:0;
+   }
+   .products_text .btn {
+      display: block;
    }
    .benefits .justify-content-between {
       position:relative;
@@ -379,62 +463,23 @@ footer img{
    }
    .benefits img{
       position:absolute;
-      top:20%;
+      top:22%;
    }
    .benefits ul {
       padding:330px 0 68px;
    }
-   .benefits h2,
+   .benefits h2{
+      align-self:center;
+      text-align:center;
+      padding-bottom:15px;
+      max-width:100%;
+   }
    .benefits p{
-      max-width:383px;
       align-self:center;
       text-align:center;
    }
-
-
-
-
-   .arrow li {
-      gap:88px;
-      max-width:387px;
-      max-height:25px;
-      padding:0 20px;
-   }
-   .arrow p::after{
-      content:"";
-      border:solid black;
-      border-width:0 2px 2px 0;
-      display:inline-block;
-      padding:3px;
-      transform:rotate(45deg);
-      transition:.3s ease all;
-   }
-   nav .arrow{
-      position:relative;
-   }
-   nav .submenu{
-      background:#fff;
-      position:absolute;
-      display:none;
-      top:30px;
-      left:20px;
-      z-index:9;
-   }
-   .arrow p:hover{
-      cursor:pointer;
-   }
-   .arrow p.close::after{
-      transform:rotate(135deg) scaleX(-1);
-   }
-   .open li{
-      padding:10px 0 0;
-   }
-   footer{
-      display:none;
-   }
-
    /* testimonials mobile */
-   .slids {
+   .justify-content-around.slids {
       overflow-x: scroll;
       display: flex !important;
       flex-direction: row;
@@ -442,4 +487,53 @@ footer img{
       justify-content: flex-start !important;
    }
 
+   /* Navigation Footer */
+   .footer_line{
+      padding:40px 10px;
+      max-height:none;
+   }
+   .nav_footer{
+      border-top:1px solid #fff;
+      color:#fff;
+   }
+   .logo_footer{
+      padding-top:20px;
+      max-width:none;
+   }
+   .logo_footer figcaption{
+      padding-top:10px;
+      line-height:20px;
+   }
+   .list h3{
+      padding:50px 0 20px;
+   }
+   .list{
+      padding:0;
+   }
+   .list li a{
+      color:#fff;
+   }
+   .list li{
+      padding:0 0 20px;
+   }
+   .smart_wrap{
+      flex-wrap:wrap;
+      justify-content:space-between;
+   }
+   .smart_wrap > :nth-child(1) {order:1;}
+   .smart_wrap > :nth-child(2) {order:3;}
+   .smart_wrap > :nth-child(3) {order:2;}
+   .copy{
+      padding:25px 0;
+      height:auto;
+   }
+   .copy :last-child{
+      display:none;
+   }
+   nav .submenu{
+      left:125px;
+   }
+   .arrow p.close::after{
+      transform:rotate(220deg) scaleX(-1);
+   }
 }
